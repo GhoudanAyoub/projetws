@@ -1,5 +1,6 @@
 package com.example.projetws;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RadioButton f;
     private Button add;
     RequestQueue requestQueue;
-    String insertUrl = "http://localhost/php02_1/ws/createEtudiant.php";
+    String insertUrl = "http://localhost/phpvolley/ws/createEtudiant.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         m = (RadioButton) findViewById(R.id.m);
         f = (RadioButton) findViewById(R.id.f);
         add.setOnClickListener(this);
+        findViewById(R.id.buttonshow).setOnClickListener(view -> startActivity(new Intent(getApplicationContext(),MainActivity2.class)));
 
     }
 

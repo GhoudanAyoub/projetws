@@ -76,4 +76,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add" />
+
+    <Button
+        android:id="@+id/buttonshow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show All" />
 </LinearLayout>
