@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RadioButton f;
     private Button add;
     RequestQueue requestQueue;
-    String insertUrl = "http://localhost/phpvolley/ws/createEtudiant.php";
+    String insertUrl = "http://192.168.1.106/BackEnd/ws/createEtudiant.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

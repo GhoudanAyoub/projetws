@@ -36,7 +36,7 @@ public class MainActivity2 extends AppCompatActivity {
     private ProgressBar progressBar;
 
     RequestQueue requestQueue;
-    String insertUrl = "http://localhost/phpvolley/ws/loadEtudiant.php";
+    String insertUrl = "http://192.168.1.1/BackEnd/ws/loadEtudiant.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
