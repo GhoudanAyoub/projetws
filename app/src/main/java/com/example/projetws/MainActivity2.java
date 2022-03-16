@@ -27,6 +27,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MainActivity2 extends AppCompatActivity {
@@ -36,7 +37,7 @@ public class MainActivity2 extends AppCompatActivity {
     private ProgressBar progressBar;
 
     RequestQueue requestQueue;
-    String insertUrl = "http://192.168.1.1/BackEnd/ws/loadEtudiant.php";
+    String insertUrl = "http://192.168.1.6/BackEnd/ws/loadEtudiant.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,17 +49,21 @@ public class MainActivity2 extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(etudiantAdapter);
 
-
         requestQueue = Volley.newRequestQueue(getApplicationContext());
         StringRequest request = new StringRequest(Request.Method.POST,
                 insertUrl, response -> {
-            Type type = new TypeToken<Collection<Etudiant>>(){}.getType();
-            Collection<Etudiant> etudiants = new Gson().fromJson(response, type);
-            for(Etudiant e : etudiants){
-                Log.d("TAG", e.toString());
+            try {
+                Type type = new TypeToken<Collection<Etudiant>>(){}.getType();
+                Collection<Etudiant> etudiants = new Gson().fromJson(response, type);
+                for(Etudiant e : etudiants){
+                    Log.d("TAG", e.toString());
+                }
+                etudiantAdapter.setList((ArrayList<Etudiant>) etudiants);
+                progressBar.setVisibility(View.GONE);
+            }catch (Exception e){
+                e.printStackTrace();
+                Toast.makeText(getApplicationContext(), "Check You BackEnd Connection", Toast.LENGTH_SHORT).show();
             }
-            etudiantAdapter.setList((ArrayList<Etudiant>) etudiants);
-            progressBar.setVisibility(View.GONE);
         }, error -> {
 
         }) ;

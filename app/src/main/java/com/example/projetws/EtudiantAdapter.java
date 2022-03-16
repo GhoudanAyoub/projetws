@@ -2,6 +2,7 @@ package com.example.projetws;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,6 +54,12 @@ public class EtudiantAdapter extends RecyclerView.Adapter<EtudiantAdapter.viewHo
         holder.textView2.setText(EtudiantList.get(position).getNom());
         holder.textView3.setText(EtudiantList.get(position).getPrenom());
         holder.textView4.setText(EtudiantList.get(position).getSexe());
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent = new Intent(context, EditActivity.class);
+            EditActivity.id=EtudiantList.get(position).getId();
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+        });
         holder.button.setOnClickListener(view -> {
 
             requestQueue = Volley.newRequestQueue(context);
