@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">projetws</string>
+    <string name="app_name">Volley + PHP </string>
     <array name="ville">
         <item>Marrakech</item>
         <item>agadir</item>
@@ -7,4 +7,6 @@
         <item>Casa</item>
         <item>Tanja</item>
     </array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -5,6 +5,7 @@ public class Etudiant {
     private String prenom;
     private String ville;
     private String sexe;
+    private String img;
     public Etudiant() {
     }
     public Etudiant(int id, String nom, String prenom, String ville, String sexe) {
@@ -14,6 +15,15 @@ public class Etudiant {
         this.ville = ville;
         this.sexe = sexe;
     }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
     public int getId() {
         return id;
     }

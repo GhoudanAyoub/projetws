@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/list"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/dialog_arrow_view"
+        android:layout_width="40dp"
+        android:layout_height="3.5dp"
+        android:layout_marginTop="8dp"
+        android:background="#b2b2b2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialog_arrow_view">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/camera_btn"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:text="Camera"
+            android:textAllCaps="false"
+            android:textColor="#06c056"
+            android:textSize="14sp"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            app:iconTint="#06c056"
+            app:shapeAppearance="@style/roundedButton"
+            app:strokeColor="#06c056"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/gallery_btn"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:text="Gallery"
+            android:textAllCaps="false"
+            android:textColor="#06c056"
+            android:textSize="14sp"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            app:shapeAppearance="@style/roundedButton"
+            app:strokeColor="#06c056"
+            app:strokeWidth="1dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

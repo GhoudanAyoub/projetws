@@ -3,14 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ayoub/Desktop/L4S2/android/projetws/app/src/main/res/drawable/ic_circle_image.xml" value="0.2604166666666667" />
+        <entry key="..\:/Users/ayoub/Desktop/L4S2/android/projetws/app/src/main/res/drawable/ic_icon_awsome_user_plus.xml" value="0.2604166666666667" />
+        <entry key="..\:/Users/ayoub/Desktop/L4S2/android/projetws/app/src/main/res/drawable/ic_light_calendar.xml" value="0.2604166666666667" />
+        <entry key="..\:/Users/ayoub/Desktop/L4S2/android/projetws/app/src/main/res/drawable/ic_small_trash.xml" value="0.13697916666666668" />
+        <entry key="..\:/Users/ayoub/Desktop/L4S2/android/projetws/app/src/main/res/drawable/ic_trash.xml" value="0.2604166666666667" />
         <entry key="..\:/Users/ayoub/Desktop/L4S2/android/projetws/app/src/main/res/layout/activity_edit.xml" value="0.24427083333333333" />
         <entry key="..\:/Users/ayoub/Desktop/L4S2/android/projetws/app/src/main/res/layout/activity_main.xml" value="0.24427083333333333" />
         <entry key="..\:/Users/ayoub/Desktop/L4S2/android/projetws/app/src/main/res/layout/activity_main2.xml" value="0.24427083333333333" />
-        <entry key="..\:/Users/ayoub/Desktop/L4S2/android/projetws/app/src/main/res/layout/rec_lay.xml" value="0.24427083333333333" />
+        <entry key="..\:/Users/ayoub/Desktop/L4S2/android/projetws/app/src/main/res/layout/fragment_imagechooser.xml" value="0.23020833333333332" />
+        <entry key="..\:/Users/ayoub/Desktop/L4S2/android/projetws/app/src/main/res/layout/image_chooser.xml" value="0.4" />
+        <entry key="..\:/Users/ayoub/Desktop/L4S2/android/projetws/app/src/main/res/layout/rec_lay.xml" value="0.4" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="15" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="15" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

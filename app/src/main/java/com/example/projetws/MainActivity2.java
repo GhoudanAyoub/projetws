@@ -1,5 +1,7 @@
 package com.example.projetws;
 
+import static com.example.projetws.Commun.IP;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,7 +39,7 @@ public class MainActivity2 extends AppCompatActivity {
     private ProgressBar progressBar;
 
     RequestQueue requestQueue;
-    String insertUrl = "http://192.168.1.6/BackEnd/ws/loadEtudiant.php";
+    String insertUrl = "http://"+IP+"/BackEnd/ws/loadEtudiant.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +52,16 @@ public class MainActivity2 extends AppCompatActivity {
         recyclerView.setAdapter(etudiantAdapter);
 
         requestQueue = Volley.newRequestQueue(getApplicationContext());
+        showAll();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        showAll();
+    }
+
+    private void showAll() {
         StringRequest request = new StringRequest(Request.Method.POST,
                 insertUrl, response -> {
             try {

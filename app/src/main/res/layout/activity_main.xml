@@ -7,11 +7,48 @@
     android:padding="10dp"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/add_profile_camera_container"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/add_tier_label_container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="0"
+        android:animateLayoutChanges="true">
+
+        <ImageView
+            android:id="@+id/iconUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_circle_image"
+            android:contentDescription="@null"
+            android:padding="14dp"
+            android:src="@drawable/ic_icon_awsome_user_plus"
+            app:tint="#06c056" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/add_tier_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_circle_image"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            app:shapeAppearance="@style/circleImageView" />
+
+    </FrameLayout>
+
+
     <TextView
         android:id="@+id/textView"
         style="@style/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#06c056"
         android:text="Nom : " />
     <EditText
         android:id="@+id/nom"
@@ -23,6 +60,7 @@
     <TextView
         android:id="@+id/textView2"
         style="@style/text"
+        android:textColor="#06c056"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Prenom :" />
@@ -35,6 +73,7 @@
         android:inputType="textPersonName" />
     <TextView
         android:id="@+id/textView3"
+        android:textColor="#06c056"
         style="@style/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,6 +89,7 @@
     <TextView
         android:id="@+id/textView4"
         style="@style/text"
+        android:textColor="#06c056"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sexe :"/>
@@ -71,15 +111,48 @@
             android:layout_weight="1"
             android:text="femme" />
     </RadioGroup>
-    <Button
-        android:id="@+id/add"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add" />
 
-    <Button
-        android:id="@+id/buttonshow"
+    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Show All" />
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/add"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:text="Add New"
+            android:textAllCaps="false"
+            android:textColor="#06c056"
+            android:textSize="14sp"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            app:iconTint="#06c056"
+            app:shapeAppearance="@style/roundedButton"
+            app:strokeColor="#06c056"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonshow"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:text="Show All"
+            android:textAllCaps="false"
+            android:textColor="#06c056"
+            android:textSize="14sp"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            app:iconTint="#06c056"
+            app:shapeAppearance="@style/roundedButton"
+            app:strokeColor="#06c056"
+            app:strokeWidth="1dp" />
+    </TableRow>
+
 </LinearLayout>

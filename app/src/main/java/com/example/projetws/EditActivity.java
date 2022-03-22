@@ -1,5 +1,7 @@
 package com.example.projetws;
 
+import static com.example.projetws.Commun.IP;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,8 +34,9 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
     private Button update;
     static int id = 0;
     RequestQueue requestQueue;
-    String loadUrl = "http://192.168.1.6/BackEnd/ws/loadEtudiant.php";
-    String updateUrl = "http://192.168.1.6/BackEnd/ws/updateEtudiant.php";
+    String loadUrl = "http://"+IP+"/BackEnd/ws/loadEtudiant.php";
+    String updateUrl = "http://"+IP+"/BackEnd/ws/updateEtudiant.php";
+    String link;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +46,8 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         prenom = findViewById(R.id.prenomE);
         ville = findViewById(R.id.villeE);
         update = findViewById(R.id.update);
-        m = findViewById(R.id.m);
-        f = findViewById(R.id.f);
+        m = findViewById(R.id.mE);
+        f = findViewById(R.id.fE);
 
         Log.d("TAG", "onCreate: "+id);
         requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -59,6 +62,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
                     if (e.getId() == id) {
                         nom.setText(e.getNom());
                         prenom.setText(e.getPrenom());
+                        link=e.getImg();
                         if (e.getSexe() == "homme") {
                             m.setSelected(true);
                         } else {
@@ -91,14 +95,18 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
             requestQueue = Volley.newRequestQueue(getApplicationContext());
             StringRequest request = new StringRequest(Request.Method.POST,
                     updateUrl, response -> {
-                Log.d("TAG", response);
                 Type type = new TypeToken<Collection<Etudiant>>() {
                 }.getType();
-                Collection<Etudiant> etudiants = new Gson().fromJson(response, type);
-                for (Etudiant e : etudiants) {
-                    Log.d("TAG", e.toString());
-                }
                 Toast.makeText(EditActivity.this, "Modification avec succès", Toast.LENGTH_SHORT).show();
+                super.onBackPressed();
+                Collection<Etudiant> etudiants = new Gson().fromJson(response, type);
+                try {
+                    for (Etudiant e : etudiants) {
+                        Log.d("TAG", e.toString());
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
             }, error -> Toast.makeText(EditActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show()) {
                 @Override
                 protected Map<String, String> getParams() {
@@ -113,6 +121,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
                     params.put("prenom", prenom.getText().toString());
                     params.put("ville", ville.getSelectedItem().toString());
                     params.put("sexe", sexe);
+                    params.put("img", link);
                     return params;
                 }
             };

@@ -1,5 +1,7 @@
 package com.example.projetws;
 
+import static com.example.projetws.Commun.IP;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,7 +40,7 @@ public class EtudiantAdapter extends RecyclerView.Adapter<EtudiantAdapter.viewHo
 
 
     RequestQueue requestQueue;
-    String deleteUrl = "http://192.168.1.1/BackEnd/ws/deleteEtudiant.php";
+    String deleteUrl = "http://"+IP+"/BackEnd/ws/deleteEtudiant.php";
     private Context context;
     public EtudiantAdapter(Context applicationContext) {
         context= applicationContext;
@@ -51,8 +56,7 @@ public class EtudiantAdapter extends RecyclerView.Adapter<EtudiantAdapter.viewHo
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.textView.setText(EtudiantList.get(position).getVille());
-        holder.textView2.setText(EtudiantList.get(position).getNom());
-        holder.textView3.setText(EtudiantList.get(position).getPrenom());
+        holder.textView2.setText(EtudiantList.get(position).getNom()+" "+EtudiantList.get(position).getPrenom());
         holder.textView4.setText(EtudiantList.get(position).getSexe());
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(context, EditActivity.class);
@@ -69,6 +73,7 @@ public class EtudiantAdapter extends RecyclerView.Adapter<EtudiantAdapter.viewHo
                         Collection<Etudiant> etudiants = new Gson().fromJson(response, type);
 
                         EtudiantList = (ArrayList<Etudiant>) etudiants;
+
                         notifyDataSetChanged();
                     }, error -> {
 
@@ -96,14 +101,13 @@ public class EtudiantAdapter extends RecyclerView.Adapter<EtudiantAdapter.viewHo
 
     public class viewHolder extends RecyclerView.ViewHolder {
 
-        TextView textView,textView2,textView3,textView4;
-        Button button;
+        TextView textView,textView2,textView4;
+        FrameLayout button;
         public viewHolder(View itemView) {
             super(itemView);
 
             textView = itemView.findViewById(R.id.textView5);
             textView2 = itemView.findViewById(R.id.textView6);
-            textView3 = itemView.findViewById(R.id.textView7);
             textView4 = itemView.findViewById(R.id.textView8);
             button = itemView.findViewById(R.id.remove);
         }
