@@ -1,5 +1,6 @@
 <?php
-interface IDao {
+interface IDao
+{
     function create($o);
     function delete($o);
     function update($o);

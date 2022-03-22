@@ -1,9 +1,11 @@
 <?php
-class Connexion {
+class Connexion
+{
     private $connexion;
-    public function __construct() {
+    public function __construct()
+    {
         $host = 'localhost';
-        $dbname = 'school1';
+        $dbname = 'tsp';
         $login = 'root';
         $password = '';
 
@@ -15,7 +17,8 @@ class Connexion {
         }
     }
 
-    function getConnexion() {
+    function getConnexion()
+    {
         return $this->connexion;
     }
 }

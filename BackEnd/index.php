@@ -8,7 +8,7 @@ include_once './racine.php';
     <title></title>
     </head>
     <body>
-        <form method="GET" action="controller/addEtudiant.php">
+        <form method="POST" action="controller/addEtudiant.php" enctype="multipart/form-data">
             <fieldset>
                 <legend>Ajouter un nouveau étudiant</legend>
                 <table border="0">
@@ -39,6 +39,10 @@ include_once './racine.php';
                     </tr>
                     <tr>
                         <td></td>
+                        <td><input type="file" name="img" accept="image/jpg"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
                         <td>
                             <input type="submit" value="Envoyer" />
                             <input type="reset" value="Effacer" />
@@ -55,13 +59,14 @@ include_once './racine.php';
                     <th>Prenom</th>
                     <th>Ville</th>
                     <th>Sexe</th>
+                    <th>Image</th>
                     <th>Supprimer</th>
                     <th>Modifier</th>
                 </tr>
             </thead>
         <tbody>
             <?php
-                include_once  __DIR__.'./service/EtudiantService.php';
+                include_once  RACINE.'/service/EtudiantService.php';
                 $es = new EtudiantService();
                 foreach ($es->findAll() as $e) {
             ?>
@@ -71,6 +76,7 @@ include_once './racine.php';
                 <td><?php echo $e->getPrenom(); ?></td>
                 <td><?php echo $e->getVille(); ?></td>
                 <td><?php echo $e->getSexe(); ?></td>
+                <td><?php echo '<img src="data:image/jpg;base64,'.base64_encode($e->getImg()).'"/>'; ?></td>
                 <td>
                 <a href="controller/deleteEtudiant.php?id=
                 <?php echo $e->getId(); ?>">Supprimer</a> </td>
