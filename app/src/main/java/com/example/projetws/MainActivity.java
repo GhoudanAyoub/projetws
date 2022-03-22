@@ -89,8 +89,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Type type = new TypeToken<Collection<Etudiant>>() {
                     }.getType();
                     Collection<Etudiant> etudiants = new Gson().fromJson(response, type);
-                    for (Etudiant e : etudiants) {
-                        Log.d("TAG", e.toString());
+                    try {
+                        Log.d("TAG", etudiants.toString());
+                        for (Etudiant e : etudiants) {
+                            Log.d("TAG", e.toString());
+                        }
+                    }catch (Exception e){
+                        e.printStackTrace();
                     }
                 }, error -> {
 

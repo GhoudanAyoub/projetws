@@ -5,6 +5,7 @@ import static com.example.projetws.Commun.IP;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,11 +26,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -58,6 +62,14 @@ public class EtudiantAdapter extends RecyclerView.Adapter<EtudiantAdapter.viewHo
         holder.textView.setText(EtudiantList.get(position).getVille());
         holder.textView2.setText(EtudiantList.get(position).getNom()+" "+EtudiantList.get(position).getPrenom());
         holder.textView4.setText(EtudiantList.get(position).getSexe());
+        if(EtudiantList.get(position).getImg()!=null)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                Glide
+                        .with(context)
+                        .load("data:image/jpg;base64,"+ Base64.getEncoder().encodeToString(EtudiantList.get(position).getImg().getBytes()))
+                        .centerCrop()
+                        .into(holder.add_tier_img);
+            }
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(context, EditActivity.class);
             EditActivity.id=EtudiantList.get(position).getId();
@@ -103,9 +115,12 @@ public class EtudiantAdapter extends RecyclerView.Adapter<EtudiantAdapter.viewHo
 
         TextView textView,textView2,textView4;
         FrameLayout button;
+        ShapeableImageView add_tier_img;
         public viewHolder(View itemView) {
             super(itemView);
 
+
+            add_tier_img = itemView.findViewById(R.id.add_tier_img);
             textView = itemView.findViewById(R.id.textView5);
             textView2 = itemView.findViewById(R.id.textView6);
             textView4 = itemView.findViewById(R.id.textView8);

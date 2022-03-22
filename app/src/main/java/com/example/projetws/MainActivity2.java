@@ -67,11 +67,15 @@ public class MainActivity2 extends AppCompatActivity {
             try {
                 Type type = new TypeToken<Collection<Etudiant>>(){}.getType();
                 Collection<Etudiant> etudiants = new Gson().fromJson(response, type);
-                for(Etudiant e : etudiants){
-                    Log.d("TAG", e.toString());
+                try {
+                    for (Etudiant e : etudiants) {
+                        Log.d("TAG", e.toString());
+                    }
+                    etudiantAdapter.setList((ArrayList<Etudiant>) etudiants);
+                    progressBar.setVisibility(View.GONE);
+                }catch (Exception e){
+                    e.printStackTrace();
                 }
-                etudiantAdapter.setList((ArrayList<Etudiant>) etudiants);
-                progressBar.setVisibility(View.GONE);
             }catch (Exception e){
                 e.printStackTrace();
                 Toast.makeText(getApplicationContext(), "Check You BackEnd Connection", Toast.LENGTH_SHORT).show();

@@ -8,12 +8,13 @@ public class Etudiant {
     private String img;
     public Etudiant() {
     }
-    public Etudiant(int id, String nom, String prenom, String ville, String sexe) {
+    public Etudiant(int id, String nom, String prenom, String ville, String sexe,String img) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.ville = ville;
         this.sexe = sexe;
+        this.img = img;
     }
 
     public String getImg() {

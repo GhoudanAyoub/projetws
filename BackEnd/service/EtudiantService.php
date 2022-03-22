@@ -16,11 +16,11 @@ class EtudiantService implements IDao
         $query = "INSERT INTO Etudiant (`id`, `nom`, `prenom`, `ville`, `sexe`, `img`) VALUES (NULL, :nom, :prenom, :ville, :sexe, :img)";
         $req = $this->connexion->getConnexion()->prepare($query);
         $req->execute(array(
-            "nom" => $o->getNom(),
-            "prenom" => $o->getPrenom(),
-            "ville" => $o->getVille(),
-            "sexe" => $o->getSexe(),
-            "img" => $o->getImg()
+            "nom"=>$o->getNom(),
+            "prenom"=>$o->getPrenom(),
+            "ville"=>$o->getVille(),
+            "sexe"=>$o->getSexe(),
+            "img"=>$o->getImg()
         )) or die('Erreur SQL');
     }
 
@@ -29,7 +29,7 @@ class EtudiantService implements IDao
         $query = "delete from Etudiant where id = :id";
         $req = $this->connexion->getConnexion()->prepare($query);
         $req->execute(array(
-            "id" => $o->getId()
+            "id"=>$o->getId()
         )) or die('Erreur SQL');
     }
 
@@ -50,7 +50,7 @@ class EtudiantService implements IDao
         $query = "select * from Etudiant where id = :id";
         $req = $this->connexion->getConnexion()->prepare($query);
         $req->execute(array(
-            "id" => $id
+            "id"=>$id
         ));
         if ($e = $req->fetch(PDO::FETCH_OBJ)) {
             $etd = new Etudiant($e->id, $e->nom, $e->prenom, $e->ville, $e->sexe, $e->img);
@@ -63,12 +63,12 @@ class EtudiantService implements IDao
         $query = "UPDATE `etudiant` SET `nom` = :nom, `prenom` = :prenom, `ville` = :ville, `sexe` = :sexe, `img` = :img WHERE `id` = :id";
         $req = $this->connexion->getConnexion()->prepare($query);
         $req->execute(array(
-            "id" => $o->getId(),
-            "nom" => $o->getNom(),
-            "prenom" => $o->getPrenom(),
-            "ville" => $o->getVille(),
-            "sexe" => $o->getSexe(),
-            "img" => $o->getImg()
+            "id"=>$o->getId(),
+            "nom"=>$o->getNom(),
+            "prenom"=>$o->getPrenom(),
+            "ville"=>$o->getVille(),
+            "sexe"=>$o->getSexe(),
+            "img"=>$o->getImg()
         )) or die('Erreur SQL');
     }
 
