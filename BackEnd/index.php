@@ -80,7 +80,7 @@ include_once './racine.php';
                     <td><?php echo $e->getSexe(); ?></td>
                     <td><?php
                         if($e->getImg() != null) {
-                            echo '<img src="data:image/jpg;base64,' . base64_encode($e->getImg()) . '"/>';
+                            echo '<img src="data:image/jpeg;base64,' . base64_encode($e->getImg()) . '"/>';
                         }else {
                             echo 'Pas d\'image';
                         }

@@ -13,6 +13,13 @@ function update()
     $etd->setPrenom($prenom);
     $etd->setVille($ville);
     $etd->setSexe($sexe);
+    if($img == "no") {
+        $image = null;
+    }else {
+        $image = $img;
+    }
+    $etd->setImg($image);
+
     $es->update($etd);
     header('Content-type: application/json');
     //echo json_encode($es->findAllApi());   
