@@ -9,7 +9,6 @@ function create()
     extract($_POST);
     $es = new EtudiantService();
 
-    //file_put_contents($image, file_get_contents($img));
     $image = base64_to_jpeg($img, 'uploaded.jpg');
 
 

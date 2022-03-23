@@ -8,6 +8,40 @@
     android:padding="10dp"
     tools:context=".EditActivity">
 
+    <FrameLayout
+        android:id="@+id/add_profile_camera_container"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/add_tier_label_container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="0"
+        android:animateLayoutChanges="true">
+
+        <ImageView
+            android:id="@+id/iconUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_circle_image"
+            android:contentDescription="@null"
+            android:padding="14dp"
+            android:src="@drawable/ic_icon_awsome_user_plus"
+            app:tint="#06c056" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/add_tier_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_circle_image"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            app:shapeAppearance="@style/circleImageView" />
+
+    </FrameLayout>
+
     <TextView
         android:id="@+id/textViewE"
         style="@style/text"
